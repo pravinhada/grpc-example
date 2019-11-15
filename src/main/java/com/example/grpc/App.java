@@ -7,7 +7,7 @@ import io.grpc.ServerBuilder;
 public class App {
 
     public static void main(String[] args) throws Exception {
-        Server server = ServerBuilder.forPort(8080)
+        Server server = ServerBuilder.forPort(8090)
                 .addService(new GreetingServiceImpl())
                 .build();
 

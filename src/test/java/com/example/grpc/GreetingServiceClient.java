@@ -1,14 +1,12 @@
-package com.example.grpc.client;
+package com.example.grpc;
 
-import com.example.grpc.GreetingServiceGrpc;
-import com.example.grpc.GreetingServiceOuterClass;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
-public class Client {
+public class GreetingServiceClient {
 
-    public static void main(String[] args) throws Exception {
-        final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8080").usePlaintext(true).build();
+    public static void main(String[] args) {
+        final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8090").usePlaintext(true).build();
         GreetingServiceGrpc.GreetingServiceBlockingStub stub = GreetingServiceGrpc.newBlockingStub(channel);
         GreetingServiceOuterClass.HelloRequest request = GreetingServiceOuterClass.HelloRequest.newBuilder().setName("Prabin").build();
         GreetingServiceOuterClass.HelloResponse response = stub.greeting(request);
