@@ -1,8 +1,10 @@
 package com.example.grpc;
 
+import com.example.grpc.client.GreetingServiceClient;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -10,8 +12,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class GreetingServiceTest {
 
+    @Autowired
+    private GreetingServiceClient greetingServiceClient;
+
     @Test
     public void testGreetingService() {
-        Assert.assertTrue(true);
+        Assert.assertEquals(greetingServiceClient.greet("Prabin"), "Hello There, Prabin");
     }
 }

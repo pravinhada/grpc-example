@@ -1,11 +1,10 @@
 package com.example.grpc;
 
-import com.example.grpc.service.GreetingServiceImpl;
-import io.grpc.Server;
-import io.grpc.ServerBuilder;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-public class App {
+@SpringBootApplication
+public class SpringGrpcApplication {
 
     public static void main(String[] args) throws Exception {
         /*Server server = ServerBuilder.forPort(8090)
@@ -16,6 +15,6 @@ public class App {
 
         System.out.println("Server Started!");
         server.awaitTermination();*/
-        SpringApplication.run()
+        SpringApplication.run(SpringGrpcApplication.class,args);
     }
 }
