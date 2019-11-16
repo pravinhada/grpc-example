@@ -14,7 +14,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
 
         GreetingServiceOuterClass.HelloResponse response = GreetingServiceOuterClass.HelloResponse
                 .newBuilder()
-                .setGreeting("Welcome " + request.getName())
+                .setGreeting("Welcome " + request.getName() + "!")
                 .build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
