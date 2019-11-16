@@ -2,7 +2,9 @@ package com.example.grpc.service;
 
 import com.example.grpc.GreetingServiceGrpc;
 import com.example.grpc.GreetingServiceOuterClass;
+import org.lognet.springboot.grpc.GRpcService;
 
+@GRpcService
 public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImplBase {
 
     @Override
@@ -12,7 +14,7 @@ public class GreetingServiceImpl extends GreetingServiceGrpc.GreetingServiceImpl
 
         GreetingServiceOuterClass.HelloResponse response = GreetingServiceOuterClass.HelloResponse
                 .newBuilder()
-                .setGreeting("hello There, " + request.getName())
+                .setGreeting("Hello There, " + request.getName())
                 .build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
