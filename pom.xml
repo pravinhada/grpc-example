@@ -3,11 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
     <artifactId>grpc</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
         <grpc-spring-boot-starter.version>3.0.0</grpc-spring-boot-starter.version>
+        <project.scm.id>grpc</project.scm.id>
     </properties>
 
     <parent>
@@ -17,20 +18,24 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
-
     <distributionManagement>
         <repository>
             <id>release</id>
             <url>http://localhost:8082/repository/example-release</url>
             <name>example-release</name>
         </repository>
+        <snapshotRepository>
+            <id>snapshot</id>
+            <url>http://localhost:8082/repository/example-snapshot</url>
+            <name>example-release</name>
+        </snapshotRepository>
     </distributionManagement>
 
     <scm>
         <connection>scm:git:git@github.com:pravinhada/grpc-example.git</connection>
         <url>git@github.com:pravinhada/grpc-example.git</url>
         <developerConnection>scm:git:git@github.com:pravinhada/grpc-example.git</developerConnection>
-        <tag>v1.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
 
