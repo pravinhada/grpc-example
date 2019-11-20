@@ -32,9 +32,9 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:pravinhada/grpc-example.git</connection>
-        <url>git@github.com:pravinhada/grpc-example.git</url>
-        <developerConnection>scm:git:git@github.com:pravinhada/grpc-example.git</developerConnection>
+        <connection>scm:git:https://github.com/pravinhada/grpc-example.git</connection>
+        <url>https://github.com/pravinhada/grpc-example.git</url>
+        <developerConnection>scm:git:https://github.com/pravinhada/grpc-example.git</developerConnection>
         <tag>v1.0.0</tag>
     </scm>
 
