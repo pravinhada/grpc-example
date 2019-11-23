@@ -3,7 +3,7 @@ node {
     def pom
 
     stage('Prepare') {
-        mvnHome = tool 'maven'
+        mvnHome = tool 'maven_3.6.2'
     }
 
     stage('Checkout') {
