@@ -7,6 +7,8 @@ import io.grpc.ManagedChannelBuilder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class GreetingServiceClient {
@@ -23,5 +25,22 @@ public class GreetingServiceClient {
         GreetingServiceOuterClass.HelloRequest request = GreetingServiceOuterClass.HelloRequest.newBuilder().setName(name).build();
         GreetingServiceOuterClass.HelloResponse response = greetingServiceBlockingStub.greeting(request);
         return response.getGreeting();
+    }
+
+    public List<String> greetManyTimes(String name) {
+        GreetingServiceOuterClass.HelloRequest request = GreetingServiceOuterClass.HelloRequest.newBuilder().setName(name).build();
+        GreetingServiceOuterClass.GreetManyTimeRequest greetManyTimeRequest = GreetingServiceOuterClass.GreetManyTimeRequest
+                .newBuilder()
+                .setHelloRequest(request)
+                .build();
+
+        List<String> values = new ArrayList<>();
+        greetingServiceBlockingStub.greetManyTimes(greetManyTimeRequest).forEachRemaining(resp -> {
+            String response = resp.getHelloResponse().getGreeting();
+            values.add(response);
+        });
+
+        System.out.println("Total value received: " + values.size());
+        return values;
     }
 }
