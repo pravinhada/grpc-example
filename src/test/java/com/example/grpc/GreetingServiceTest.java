@@ -18,5 +18,6 @@ public class GreetingServiceTest {
     @Test
     public void testGreetingService() {
         Assert.assertEquals(greetingServiceClient.greet("Prabin"), "Welcome Prabin!");
+        Assert.assertEquals(greetingServiceClient.greet("XYZ"), "Welcome XYZ!");
     }
 }
