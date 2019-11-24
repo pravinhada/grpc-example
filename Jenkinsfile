@@ -18,9 +18,22 @@ node {
         }
     }
 
+    if(env.BRANCH_NAME == 'master') {
+        stage('Build from master') {
+            echo "Finished the master build."
+        }
+    }
+
     if(env.BRANCH_NAME == 'develop') {
-        stage('Snapshot Build and Upload Artifacts') {
+        stage('Snapshot Build and Upload Artifacts from develop') {
             echo "Finished the develop build."
         }
     }
+
+    if(env.BRANCH_NAME ==~ /release.*/) {
+        stage('Build and release') {
+            echo "Finished the release build."
+        }
+    }
+
 }
