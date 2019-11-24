@@ -1,2 +1,1 @@
-This is simple Spring GRpc Application to test CI/CD pipeline. 
-Test for webhooks
+This is simple Spring GRpc Application to test CI/CD pipeline.
