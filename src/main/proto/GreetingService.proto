@@ -11,6 +11,15 @@ message HelloResponse {
     string greeting = 1;
 }
 
+message GreetManyTimeRequest {
+    HelloRequest helloRequest = 1;
+}
+
+message GreetManyTimeResponse {
+    HelloResponse helloResponse = 1;
+}
+
 service GreetingService {
     rpc greeting(HelloRequest) returns (HelloResponse);
+    rpc greetManyTimes(GreetManyTimeRequest) returns(stream GreetManyTimeResponse);
 }

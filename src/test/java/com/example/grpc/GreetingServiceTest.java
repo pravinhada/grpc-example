@@ -20,4 +20,9 @@ public class GreetingServiceTest {
         Assert.assertEquals(greetingServiceClient.greet("Prabin"), "Welcome Prabin!");
         Assert.assertEquals(greetingServiceClient.greet("XYZ"), "Welcome XYZ!");
     }
+
+    @Test
+    public void testGreetManyTimeService() {
+        Assert.assertEquals(greetingServiceClient.greetManyTimes("Alex").size(), 5);
+    }
 }
