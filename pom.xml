@@ -21,12 +21,12 @@
     <distributionManagement>
         <repository>
             <id>releases</id>
-            <url>http://localhost:8082/repository/maven-releases</url>
+            <url>http://localhost:8090/artifactory/maven-releases</url>
             <name>maven-releases</name>
         </repository>
         <snapshotRepository>
             <id>snapshots</id>
-            <url>http://localhost:8082/repository/maven-snapshots</url>
+            <url>http://localhost:8090/artifactory/maven-snapshots</url>
             <name>maven-snapshots</name>
         </snapshotRepository>
     </distributionManagement>

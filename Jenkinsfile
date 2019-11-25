@@ -26,7 +26,12 @@ node {
 
     if(env.BRANCH_NAME == 'develop') {
         stage('Snapshot Build and Upload Artifacts from develop') {
-            echo "Finished the develop build."
+        if(isUnix()) {
+            sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean deploy"
+        } else {
+            bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean deploy/)
+        }
+        echo "Finished the develop build."
         }
     }
 
