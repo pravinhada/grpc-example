@@ -37,7 +37,7 @@ node {
 
     if(env.BRANCH_NAME ==~ /release.*/) {
         stage('Build and release') {
-            echo "Finished the release build."
+            echo "Finished the release build and uploading release artifacts"
         }
     }
 }
