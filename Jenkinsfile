@@ -3,7 +3,7 @@ node {
     def pom
 
     stage('Prepare') {
-        mvnHome = tool 'maven_3.6.2'
+        mvnHome = tool 'jenkins_maven'
     }
 
     stage('Checkout') {
@@ -25,15 +25,19 @@ node {
     }
 
     if(env.BRANCH_NAME == 'develop') {
-        stage('Snapshot Build and Upload Artifacts from develop') {
-            echo "Finished the develop build."
+        stage('Uploading Artifacts from develop') {
+        if(isUnix()) {
+            sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean deploy"
+        } else {
+            bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean deploy/)
+        }
+        echo "Finished the snapshots upload."
         }
     }
 
     if(env.BRANCH_NAME ==~ /release.*/) {
         stage('Build and release') {
-            echo "Finished the release build."
+            echo "Finished the release build and uploading release artifacts"
         }
     }
-
 }
