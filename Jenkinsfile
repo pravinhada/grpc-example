@@ -40,5 +40,4 @@ node {
             echo "Finished the release build."
         }
     }
-
 }
