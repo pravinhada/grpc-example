@@ -4,6 +4,7 @@ import com.example.grpc.GreetingServiceGrpc;
 import com.example.grpc.GreetingServiceOuterClass;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Slf4j
 public class GreetingServiceClient {
 
     private GreetingServiceGrpc.GreetingServiceBlockingStub greetingServiceBlockingStub;
@@ -40,7 +42,7 @@ public class GreetingServiceClient {
             values.add(response);
         });
 
-        System.out.println("Total value received: " + values.size());
+        log.info("Total value received: " + values.size());
         return values;
     }
 }
